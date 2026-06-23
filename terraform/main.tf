@@ -4,7 +4,7 @@ data "aws_eks_cluster_auth" "cluster" {
 }
 
 provider "kubernetes" {
-  host                   = aws_eks_cluster.taskflow_eks_cluster.endpoint
+  host = aws_eks_cluster.taskflow_eks_cluster.endpoint
   cluster_ca_certificate = base64decode(
     aws_eks_cluster.taskflow_eks_cluster.certificate_authority[0].data
   )
@@ -40,9 +40,9 @@ resource "aws_subnet" "taskflow_public_subnet_2" {
   availability_zone       = "us-east-1b"
   map_public_ip_on_launch = true
   tags = {
-  Name                                        = "taskflow-public-subnet-2"
-  "kubernetes.io/cluster/taskflow-eks-cluster" = "shared"
-  "kubernetes.io/role/elb"                    = "1"
+    Name                                         = "taskflow-public-subnet-2"
+    "kubernetes.io/cluster/taskflow-eks-cluster" = "shared"
+    "kubernetes.io/role/elb"                     = "1"
 
   }
 }
@@ -52,9 +52,9 @@ resource "aws_subnet" "taskflow_private_subnet_1" {
   cidr_block        = var.private_subnet_cidr
   availability_zone = "us-east-1a"
   tags = {
-  Name                                        = "taskflow-private-subnet-1"
-  "kubernetes.io/cluster/taskflow-eks-cluster" = "shared"
-  "kubernetes.io/role/internal-elb"                    = "1"
+    Name                                         = "taskflow-private-subnet-1"
+    "kubernetes.io/cluster/taskflow-eks-cluster" = "shared"
+    "kubernetes.io/role/internal-elb"            = "1"
 
   }
 }
@@ -64,9 +64,9 @@ resource "aws_subnet" "taskflow_private_subnet_2" {
   cidr_block        = "10.0.4.0/24"
   availability_zone = "us-east-1b"
   tags = {
-  Name                                        = "taskflow-private-subnet-2"
-  "kubernetes.io/cluster/taskflow-eks-cluster" = "shared"
-  "kubernetes.io/role/internal-elb"                    = "1"
+    Name                                         = "taskflow-private-subnet-2"
+    "kubernetes.io/cluster/taskflow-eks-cluster" = "shared"
+    "kubernetes.io/role/internal-elb"            = "1"
 
   }
 }

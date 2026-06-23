@@ -59,6 +59,12 @@ resource "aws_iam_policy" "github_actions" {
           "ecr:UploadLayerPart"
         ]
         Resource = aws_ecr_repository.taskflow.arn
+      },
+      {
+        Sid      = "EKSDescribeForKubeconfig"
+        Effect   = "Allow"
+        Action   = ["eks:DescribeCluster"]
+        Resource = aws_eks_cluster.taskflow_eks_cluster.arn
       }
     ]
   })
