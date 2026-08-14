@@ -1,0 +1,17 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: taskflow-infra
+  description: Terraform infrastructure for the TaskFlow platform — VPC, EKS, IAM, ECR, and remote state.
+  annotations:
+    github.com/project-slug: OnyiGlobal2025/taskflow-infra
+    backstage.io/techdocs-ref: dir:.
+  tags:
+    - terraform
+    - aws
+    - eks
+    - infrastructure
+spec:
+  type: infrastructure
+  lifecycle: production
+  owner: platform-team
