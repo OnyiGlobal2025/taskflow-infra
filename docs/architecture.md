@@ -17,7 +17,7 @@ flowchart TB
     tf --> vpc[Amazon VPC]
     vpc --> eks[Amazon EKS]
     tf --> ecr[Amazon ECR]
-    eks -.->|namespaces via kubectl post-apply| ns[dev / staging / prod]
+    eks -.->|kubectl post-apply| ns[dev / staging / prod]
 ```
 
 ## Key decisions
