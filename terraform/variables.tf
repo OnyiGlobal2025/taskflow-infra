@@ -21,3 +21,15 @@ variable "public_subnet_cidr" {
   type        = string
   default     = "10.0.2.0/24"
 }
+
+variable "backstage_db_username" {
+  description = "Master username for the Backstage RDS PostgreSQL instance"
+  type        = string
+  default     = "backstage_admin"
+}
+
+variable "backstage_db_password" {
+  description = "Master password for the Backstage RDS PostgreSQL instance (supplied at apply time, never committed)"
+  type        = string
+  sensitive   = true
+}

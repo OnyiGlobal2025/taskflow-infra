@@ -4,3 +4,6 @@
 terraform.tfstate
 terraform.tfstate.backup
 *.tfvars.backup
+*.tfvars
+crash.log
+*.tfstate.*
