@@ -18,7 +18,12 @@ resource "aws_iam_role" "github_actions" {
         Action = "sts:AssumeRoleWithWebIdentity"
         Condition = {
           StringLike = {
-            "token.actions.githubusercontent.com:sub" = "repo:OnyiGlobal2025/taskflow-app:*"
+          "token.actions.githubusercontent.com:sub" = [
+              "repo:OnyiGlobal2025/taskflow-app:*",
+              "repo:OnyiGlobal2025/taskflow-backstage:*",
+              "repo:OnyiGlobal2025/taskflow-infra:*",
+              "repo:OnyiGlobal2025/taskflow-gitops:*",
+            ]
           }
           StringEquals = {
             "token.actions.githubusercontent.com:aud" = "sts.amazonaws.com"
